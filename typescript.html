@@ -30,7 +30,208 @@
 						<small>Created by <a href="https://github.com/RajendrasinhParmar">Rajendrasinh Parmar</a> / <a href="https://twitter.com/RAJENDRASINH_09">@RAJENDRASINH_09</a></small>
 					</p>
 				</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>The Benefits</h2>
+					<ul>
+						<li>Static typing</li>
+						<li>More predictable code</li>
+						<li>Easier to debug</li>
+						<li>Modules, Namespaces and Strong OOP support</li>
+						<li>Compiler step before javascript</li>
+					</ul>
+				</section>
+				<section>
+					<section>	
+						<h2>Installation</h2>
+						<blockquote>
+							You will need Node.js and Npm for this demo. Go <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank">here</a> if you don't have them installed.
+						</blockquote>
+					</section>
+					<section>
+						<div style="text-align:left;">
+							<small>We can install TypeScript using npm with following command. Open terminal(Mac/Linux)/command prompt(Windows).</small>
+							<pre><code class="hljs" style="word-wrap: break-word;">npm install -g typescript</code></pre>
+							<small>Check if typescript is installed properly with following command.</small>
+							<pre><code class="hljs" style="word-wrap: break-word;">tsc -v</code></pre>
+						</div>
+					</section>
+				</section>
+				<section>
+					<h2>Text Editors</h2>
+					<ul>
+						<li><a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> - Microsoft's other, lightweight open-source code editor. TypeScript support is built in.</li>
+						<li>Official <a href="https://github.com/Microsoft/TypeScript-Sublime-Plugin" target="_blank">Free Plugin</a> for Sublime Text.</li>
+						<li>The latest version of <a href="https://www.jetbrains.com/webstorm" target="_blank">WebStorm</a> comes with built in support.</li>
+						<li><a href="https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support" target="_blank">More</a> including Vim, Atom, Emacs and others.</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Compilation</h2>
+						<ul>
+							<li>Written in .ts files (or .tsx for JSX)</li>
+							<li>Browser can not direct understand typescript</li>
+							<li>Need to be translated to vanilla .js first</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Different method for compilation</h3>
+						<ul>
+							<li>In terminal using command line tool <b><i>tsc</i></b></li>
+							<li>Directly in Visual Studio or some of the other IDEs</li>
+							<li>Using automated task runners such as gulp</li>
+						</ul>
+					</section>
+					<section>
+						<div style="text-align:left;">
+							<small>The following command takes a TypeScript file named main.ts and translates it into its JavaScript version main.js. <i>If main.js already exists it will be overwritten.</i></small>
+							<pre><code>tsc main.ts</code></pre>
+							<small>Can also compile multiple files at once</small>
+							<pre><code class="hljs" style="word-wrap: break-word;"># Will result in separate .js files: main.js worker.js.
+tsc main.ts worker.ts</code></pre>
+							<small>Can also compile by applying wildcards</small>
+							<pre><code class="hljs" style="word-wrap: break-word;"># Compiles all .ts files in the current folder. Does NOT work recursively.
+tsc *.ts</code></pre>
+						</div>
+					</section>
+					<section>
+						<div style="text-align:left;">
+							<small>Use the <b><i>--watch</i></b> option to automatically compile a TypeScript file when changes are made</small>
+							<pre><code class="hljs" style="word-wrap: break-word;"># Initializes a watcher process that will keep main.js up to date.
+tsc main.ts --watch</code></pre>
+							<small>More advanced TypeScript users can also create a tsconfig.json file, consisting of various build settings.</small>
+							<small>You can read more about tsconfig.json in the TypeScript docs <a href="http://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">here</a></small>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Static Typing</h2>
+						<div style="text-align:left;">
+							<small>TypeScript supports static typing</small>
+							<small>Can declare the types of variables, and the compiler will make sure that they aren't assigned the wrong types of values</small></li>
+							<small>If type declarations are omitted, they will be inferred automatically from your code</small>
+						</div>
+					</section>
+					<section>
+						<div>
+							<h4>Most commonly used data types</h4>
+							<small>
+								<ul>
+									<li>Number - All numeric values are represented by the number type, there aren't separate definitions for integers, floats or others.</li>
+									<li>String - The text type, just like in vanilla JS strings can be surrounded by 'single quotes' or "double quotes".</li>
+									<li>Boolean - true or false, using 0 and 1 will cause a compilation error.</li>
+									<li>Any - A variable with this type can have it's value set to a string, number, or anything else.</li>
+									<li>Arrays - Has two possible syntaxes:
+										<pre><code class="javascript">my_arr: number[]; or my_arr: Array&lt;number&gt;</code></pre></li>
+									<li>Void - Used on function that don't return anything.</li>
+								</ul>
+							</small>
+						</div>
+					</section>
+					<section>
+						<h3>Example</h3>
+						<pre><code contenteditable class="javascript">var name: string = 'Rajendrasinh',     // String 
+    age: number = 26,           // Numeric
+
+// Alternatively, you can omit the type declaration:
+// var name = 'Rajendrasinh';
+
+// The function expects a string and an integer.
+// It doesn't return anything so the type of the function itself is void.
+
+function speak(name: string, age: number): void {
+  console.log("Hello " + name + " you are" + age + " old");
+}
+
+speak(name, age);</code></pre>
+					</section>
+					<section>
+						<div style="text-align:left;">
+							<small> If we try to do something illegal, on compilation tsc will warn us that there is an error in our code.</small>
+							<pre><code contenteditable class="javascript">// The given type is boolean, the provided value is a string.
+var isSwitchOn: boolean = "I haven't checked";</code></pre>
+							<pre><code class="javascript">main.ts(1,5): error TS2322: Type 'string' is not assignable to type 'boolean'.</code></pre>
+
+							<small>
+								Same is true for passing invalid type of arguments to the function
+							</small>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Interfaces</h2>
+						<div style="text-align:left;">
+							<small>Interfaces are used to type-check whether an object fits a certain structure</small>
+							<small>When translated to JavaScript, interfaces disappear</small>
+						</div>
+					</section>
+					<section>
+						<h3>Example</h3>
+						<pre><code class="javascript" contenteditable>// Here we define our Person interface, its properties, and their types.
+interface Person {
+    name: string;
+    age: number;
+}
+
+// We tell our function to expect an object that fulfils the Person interface. 
+// This way we know that the properties we need will always be available.
+function speak(person: Person): void{
+  console.log("Hello, " + person.name + " you are " + person.age + " years old.");
+}
+
+// We define an object that has all of the properties the Person interface expects.
+// Notice that types will be inferred automatically.
+var person1 = {
+  name: "Rajendrasinh", 
+  age: 26
+}
+
+speak(person1);</code></pre>
+					</section>
+				</section>
+				<section>
+					<div>
+						<h2>Classes and OOP</h2>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Generics</h2>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Modules</h2>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Declaration Files</h2>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Features in TypeScript 2.0</h2>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Further Reading</h2>
+						<ul>
+							<li>Namespaces - <a href="http://www.typescriptlang.org/docs/handbook/namespaces.html" target="_blank">here</a>.</li>
+							<li>Enums - <a href="http://www.typescriptlang.org/docs/handbook/enums.html" target="_blank">here</a>.</li>
+							<li>Advanced Types and Type Guards - <a href="http://www.typescriptlang.org/docs/handbook/advanced-types.html" target="_blank">here</a>.</li>
+							<li>Writing JSX in TypeScript - <a href="http://www.typescriptlang.org/docs/handbook/jsx.html" target="_blank">here</a>.</li>							
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h1>Questions?</h1>
+					</div>
+				</section>
 			</div>
 		</div>
 
