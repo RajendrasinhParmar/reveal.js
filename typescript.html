@@ -192,9 +192,87 @@ speak(person1);</code></pre>
 					</section>
 				</section>
 				<section>
-					<div>
+					<section>
 						<h2>Classes and OOP</h2>
-					</div>
+						<div style="text-align:left;">
+							<p>TypeScript offers a class system that is very similar to other OOP languages like Java, C#.</p>
+						</div>
+					</section>
+					<section>
+						<h3>OOP Features</h3>
+						<ul style="text-align:left;">
+							<li class="fragment">Inheritance</li>
+							<li class="fragment">Abstract classes</li>
+							<li class="fragment">Interfaces</li>
+							<li class="fragment">Setters/Getters</li>
+							<li class="fragment">More...</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Update in javascript standards</h3>
+						<div style="text-align:left;">
+							<p>Since the most recent JavaScript update ECMAScript 2015, classes are native to vanilla JS and can be used without TypeScript.</p>
+							<p>The two implementation are very similar but have their differences, TypeScript being a bit more strict.</p>
+						</div>
+					</section>
+					<section>
+						<h3>Example of Class</h3>
+						<div>
+							<pre><code class="javascript">class Person {
+  // Our properties:
+  // By default they are public, but can also be private or protected.
+  name: string;
+  age: number;
+
+  // A straightforward constructor. 
+  constructor(name: string, age: number) {
+    // The this keyword is mandatory.
+    this.name = name;    
+    this.age = age;
+  }
+
+  // Methods
+  print(): void {
+    console.log("Hello " + this.name + ".Your Age is " + this.age)
+  }
+
+} 
+
+// Create a new instance of the Person class.
+var personObj = new Menu("Rajendrasinh", 26);
+
+// Call the print method.
+personObj.print();</code></pre>
+						</div>
+					</section>
+					<section>
+						<h3>Example of Inheritance</h3>
+						<pre><code class="javascript">class Employee extends Person {
+  // Properties are inherited
+  employeeId: number
+
+  // A new constructor has to be defined.
+  constructor(name: string, age: number, employeeId: number) {
+	this.name = name;
+	this.employeeId = this.employeeId;
+	this.age = age; 
+  }
+
+  // Just like the properties, methods are inherited from the parent.
+  // However, we want to override the print() function so we redefine it.
+  print(): void{
+    console.log("Hello " + this.name + ". Your Age is " + this.age + ". Your Employee ID is " + this.employeeId);
+  }
+}
+
+// Create a new instance of the Employee class.
+var employeeObj = new Employee("Rajendrasinh", 26, 319);
+
+employeeObj.print();</code></pre>
+					</section>
+					<section>
+						<h4>For a more in-depth look at classes in TS you can read the documentation - <a href="http://www.typescriptlang.org/docs/handbook/classes.html" target="_blank">here</a></h4>
+					</section>
 				</section>
 				<section>
 					<div>
