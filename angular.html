@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Angular 2</h1>
+					<p>
+						<small>Created by <a href="https://github.com/RajendrasinhParmar">Rajendrasinh Parmar</a> / <a href="https://twitter.com/RAJENDRASINH_09">@RAJENDRASINH_09</a></small>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2 style="text-transform:capitalize;">
+							Why Angular 2 over Angular 1.x
+						</h2>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							Angular 2 is mobile oriented
+						</h3>
+						<div style="text-align:left;">
+							Angular 1.x was not built with mobile support in mind, where Angular 2 is mobile oriented.
+						</div>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							Angular 2 is better in performance
+						</h3>
+						<div style="text-align:left;">
+							<ul>
+								<li>Angular 2 is using Hierarchical Dependency Injection system which is major performance booster</li>
+								<li>Angular 2 implements unidirectional tree based change detection which again increases performance</li>
+								<li><i>As per ng-conf meetup, angular 2 is 5 times faster as compared to angular 1.</i></li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							More choice for languages
+						</h3>
+						<div style="text-align:left;">
+							<ul>
+								<li>We can use any of the languages from ES5, ES6, TypeScript or Dart to write Angular 2 code</li>
+								<li>Angular 1.x has ES5, ES6, and Dart</li>
+								<li>TypeScript support is a great step due it's benefits over javascript</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							Controllers and $scope are gone
+						</h3>
+						<div style="text-align:left;">
+							<ul>
+								<li>Angular 1.x controllers and $scope are gone.</li>
+								<li>We can say that controllers are replaced with “Components” in Angular 2</li>
+								<li>Angular 2 is using zone.js to detect changes.</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							Angular 2 is component based
+						</h3>
+						<div style="text-align:left;">
+							<ul>
+								<li>Everything in Angular 2 is components so angular 2 application is more moduler</li>
+								<li>Angular 1.x has 5 different ways to declare service. Factory, Service, Provider, Constant, Values</li>
+								<li>In Angular 2, class is the only way to define a service.</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							Uses valid HTML DOM element properties and events
+						</h3>
+						<div style="text-align:left;">
+							<p>Angular 2 directly uses the valid HTML DOM element properties and events. Due to this, many of the available built-in directives in Angular 1.x are now no longer required.</p>
+						</div>
+					</section>
+					<section>
+						<h3 style="text-transform:capitalize;">
+							Bootstrapping Application
+						</h3>
+						<div style="text-align:left;">
+							<p>Angular 1.x has 2 ways to bootstrap Angular. One using ng-app attribute and other via code.</p>
+							<p>In Angular 2, say goodbye to ng-app. The only way to bootstrap Angular is via code.</p>
+						</div>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
