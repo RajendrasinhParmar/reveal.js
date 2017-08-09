@@ -41,7 +41,7 @@
 					</ul>
 				</section>
 				<section>
-					<section>	
+					<section>
 						<h2>Installation</h2>
 						<blockquote>
 							You will need Node.js and Npm for this demo. Go <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank">here</a> if you don't have them installed.
@@ -175,7 +175,7 @@ interface Person {
     age: number;
 }
 
-// We tell our function to expect an object that fulfils the Person interface. 
+// We tell our function to expect an object that fulfils the Person interface.
 // This way we know that the properties we need will always be available.
 function speak(person: Person): void{
   console.log("Hello, " + person.name + " you are " + person.age + " years old.");
@@ -184,7 +184,7 @@ function speak(person: Person): void{
 // We define an object that has all of the properties the Person interface expects.
 // Notice that types will be inferred automatically.
 var person1 = {
-  name: "Rajendrasinh", 
+  name: "Rajendrasinh",
   age: 26
 }
 
@@ -224,10 +224,10 @@ speak(person1);</code></pre>
   name: string;
   age: number;
 
-  // A straightforward constructor. 
+  // A straightforward constructor.
   constructor(name: string, age: number) {
     // The this keyword is mandatory.
-    this.name = name;    
+    this.name = name;
     this.age = age;
   }
 
@@ -236,7 +236,7 @@ speak(person1);</code></pre>
     console.log("Hello " + this.name + ".Your Age is " + this.age)
   }
 
-} 
+}
 
 // Create a new instance of the Person class.
 var personObj = new Menu("Rajendrasinh", 26);
@@ -275,24 +275,33 @@ employeeObj.print();</code></pre>
 					</section>
 				</section>
 				<section>
-					<div>
+					<section>
 						<h2>Generics</h2>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h2>Modules</h2>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h2>Declaration Files</h2>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h2>Features in TypeScript 2.0</h2>
-					</div>
+						<div>
+							<p>Generics are templates that allow the same function to accept arguments of various different types</p>
+						</div>
+					</section>
+					<section>
+						<pre><code class="javascript">// The <T> after the function name symbolizes that it's a generic function.
+// When we call the function, every instance of T will be replaced with the actual provided type.
+
+// Receives one argument of type T,
+// Returns an array of type T.
+
+function genericFunc<T>(argument: T): T[] {    
+  var arrayOfT: T[] = [];    // Create empty array of type T.
+  arrayOfT.push(argument);   // Push, now arrayOfT = [argument].
+  return arrayOfT;
+}
+
+var arrayFromString = genericFunc<string>("beep");
+console.log(arrayFromString[0]);         // "beep"
+console.log(typeof arrayFromString[0])   // String
+
+var arrayFromNumber = genericFunc(42);
+console.log(arrayFromNumber[0]);         // 42
+console.log(typeof arrayFromNumber[0])   // number</code></pre>
+					</section>
 				</section>
 				<section>
 					<div>
