@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>NodeJS</h1>
+					<p>
+						<small>Created by <a href="https://github.com/RajendrasinhParmar">Rajendrasinh Parmar</a> / <a href="https://twitter.com/RAJENDRASINH_09">@RAJENDRASINH_09</a></small>
+					</p>
+				</section>
+				<section>
+					<h2>Definition</h2>
+					<blockquote cite="">
+						Node.js is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side.
+					</blockquote>
+				</section>
+				<section>
+					<section>
+						<h2>The rise of NodeJS</h2>
+						<blockquote cite="">
+							Node.js was made possible following Google’s release of its V8 JavaScript engine, which was developed as the JavaScript execution engine for the Chrome browser.
+						</blockquote>
+					</section>
+					<section>
+						<h2>History</h2>
+						<ul>
+							<li>Node.js was originally written by Ryan Dahl in 2009</li>
+							<li>In January 2010, a package manager was introduced for the Node.js environment called npm</li>
+							<li>In June 2011, Microsoft and Joyent implemented a native Windows version of Node.js.</li>
+							<li>In September 2015, Node.js v4.0 was released, this brought V8 ES6 features into Node.js, and a long-term support release cycle.</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Version History</h2>
+						<img src="./assets/images/NodeVersions.png" alt="">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Benefits of NodeJS</h2>
+						<ul>
+							<li class="fragment">Asynchronous I/O</li>
+							<li class="fragment">Language Javascript</li>
+							<li class="fragment">Community Driven</li>
+							<li class="fragment">The Fast Suite</li>
+							<li class="fragment">Go With Data Streaming</li>
+							<li class="fragment">Present Everywhere</li>
+							<li class="fragment">Real-Time Web Applications</li>
+							<li class="fragment">Easy On Coding</li>
+							<li class="fragment">Dynamic NPM</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>Installation</h2>
+					<blockquote>
+						Go <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank">here</a> if you don't have them installed.
+					</blockquote>
+				</section>
+				<section>
+					<section>
+						<h2>How NodeJS works</h2>
+						<img src="./assets/images/eventloop.jpg" alt="">
+					</section>
+					<section>
+						<h2>Continue...</h2>
+						<img class="fragment" src="./assets/images/eventloop1.png" alt="">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Basic example with NodeJS</h2>
+						<pre><code class="javascript">var http = require("http");
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}).listen(8888);</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>NodeJS package manager</h2>
+						<ul>
+							<li>Also Known as NPM</li>
+							<li>An online repository for the publishing of open-source Node.js projects</li>
+							<li>A commandline utility for:
+								<ul>
+									<li>Interacting with repository</li>
+									<li>Package installation</li>
+									<li>Version management</li>
+									<li>Dependency management</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>ExpressJs</h2>
+						<blockquote cite="">
+							Fast, unopinionated, minimalist web framework for Node.js
+						</blockquote>
+					</section>
+					<section>
+						<h2>Installation</h2>
+						<div style="text-align:left;">
+							<p>Create a directory to hold your application, and make that your working directory.</p>
+							<pre><code class="shall">$ mkdir myapp
+$ cd myapp</code></pre>
+
+							<p>Use the npm init command to create a package.json file for your application.</p>
+							<pre><code class="shall">$ npm init</code></pre>
+							<small>For more information on how package.json works, see <a href="https://docs.npmjs.com/files/package.json">Specifics of npm’s package.json handling.</a></small>
+						</div>
+					</section>
+					<section>
+						<h2>Installation...</h2>
+						<div style="text-align:left;">
+							<p>Now install Express in the myapp directory and save it in the dependencies list.</p>
+							<pre><code class="shall">$ npm install express --save</code></pre>
+							<p>To install Express temporarily and not add it to the dependencies list</p>
+							<pre><code class="shall">$ npm install express --no-save</code></pre>
+						</div>
+					</section>
+					<section>
+						<h2>Code Example using ExpressJs</h2>
+						<div style="text-align:left;">
+							<p>write following code and save file with name app.js</p>
+							<pre><code class="javascript">
+//app.js
+const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+res.send('Hello World!')
+})
+
+app.listen(3000, function () {
+console.log('Example app listening on port 3000!')
+})</code></pre>
+						</div>
+					</section>
+					<section>
+						<h2>Execution</h2>
+						<div style="text-align:left;">
+							<p>Run the app with the following command:</p>
+							<pre><code class="shall">$ node app.js</code></pre>
+							<p>Now, load http://localhost:3000/</p>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>NodeJS Application structure</h2>
+						<pre><code>├── app.js
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.pug
+    ├── index.pug
+    └── layout.pug</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>REST API using NodeJS</h2>
+					</section>
+				</section>
+				<section>
+					<h1>Questions?</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
