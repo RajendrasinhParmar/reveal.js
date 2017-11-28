@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Docker</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/moon.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Docker</h1>
+				<p>
+					<small>Created by
+						<a href="https://github.com/RajendrasinhParmar">Rajendrasinh Parmar</a> /
+						<a href="https://twitter.com/RAJENDRASINH_09">@RAJENDRASINH_09</a>
+					</small>
+				</p>
+			</section>
+			<section>
+				<div>
+					<h3>What is Docker?</h3>
+					<p>
+						Docker provides an additional layer of abstraction and automation of operating-system-level virtualization on Windows and
+						Linux.
+					</p>
+				</div>
+			</section>
+			<section>
+				<section>
+					<div>
+						<h2>containers & VMs</h2>
+						<h3 class="fragment fade-up">Goals</h3>
+						<ul>
+							<li class="fragment fade-up">To isolate an application and its dependencies</li>
+							<li class="fragment fade-up">Remove the need for physical hardware</li>
+							<li class="fragment fade-up">More efficient use of computing resources</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Virtual Machines (VM)</h2>
+						<p>A VM is essentially an emulation of a real computer that executes programs like a real computer.</p>
+						<p>VMs run on top of a physical machine using a “hypervisor”. A hypervisor, in turn, runs on either a host machine or
+							on “bare-metal”.</p>
+					</div>
+					<aside class="notes">
+						A hypervisor is a piece of software, firmware, or hardware that VMs run on top of. The hypervisors themselves run on physical
+						computers, referred to as the “host machine”.
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h4>Virtual Machines (VM) ... </h4>
+						<img src="./assets/images/hyperv.png" height="550px" widht="auto" alt="">
+					</div>
+					<aside class="notes">
+						A hypervisor is a piece of software, firmware, or hardware that VMs run on top of. The hypervisors themselves run on physical
+						computers, referred to as the “host machine”.
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h2>Container</h2>
+						<p>Container provides operating-system-level virtualization by abstracting the “user space”</p>
+						<p>The one big difference between containers and VMs is that containers <b style="color:chartreuse;">share</b> the host system’s kernel with other containers.</p>
+					</div>
+					<aside class="notes">
+						VM provides hardware virtualization
+						For all intent and purposes, containers look like a VM. For example, they have private space for processing, can execute commands as root, have a private network interface and IP address, allow custom routes and iptable rules, can mount file systems, and etc.
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h4>Container ... </h4>
+						<img src="./assets/images/container.png" height="550px" widht="auto" alt="">
+					</div>
+					<aside class="notes">
+						The only parts that are created from scratch are the bins and libs. This is what makes containers so lightweight.
+					</aside>
+				</section>
+			</section>
+			<section>
+				<div>
+					<h1>Questions?</h1>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function () {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
