@@ -74,20 +74,18 @@
 						<img src="./assets/images/hyperv.png" height="550px" widht="auto" alt="">
 					</div>
 					<aside class="notes">
-						A hypervisor is a piece of software, firmware, or hardware that VMs run on top of. The hypervisors themselves run on physical
-						computers, referred to as the “host machine”.
+						VM provides hardware virtualization For all intent and purposes, containers look like a VM. For example, they have private
+						space for processing, can execute commands as root, have a private network interface and IP address, allow custom routes
+						and iptable rules, can mount file systems, and etc.
 					</aside>
 				</section>
 				<section>
 					<div>
 						<h2>Container</h2>
 						<p>Container provides operating-system-level virtualization by abstracting the “user space”</p>
-						<p>The one big difference between containers and VMs is that containers <b style="color:chartreuse;">share</b> the host system’s kernel with other containers.</p>
+						<p>The one big difference between containers and VMs is that containers
+							<b style="color:chartreuse;">share</b> the host system’s kernel with other containers.</p>
 					</div>
-					<aside class="notes">
-						VM provides hardware virtualization
-						For all intent and purposes, containers look like a VM. For example, they have private space for processing, can execute commands as root, have a private network interface and IP address, allow custom routes and iptable rules, can mount file systems, and etc.
-					</aside>
 				</section>
 				<section>
 					<div>
@@ -100,8 +98,178 @@
 				</section>
 			</section>
 			<section>
+				<section>
+					<div>
+						<h2>Key Benefits of Docker
+							<aside class="notes">
+							</aside>
+						</h2>
+						<ul>
+							<li class="fragment fade-up">Continuous Deployment and Testing
+								<aside class="notes">
+									There are always minor differences between environments in development and release lifecycles
+								</aside>
+							</li>
+							<li class="fragment fade-up">Portability
+								<aside class="notes">
+									Docker containers can be run inside an Amazon EC2 instance, Google Compute Engine instance, Rackspace server or VirtualBox,
+									provided that the host OS supports Docker
+								</aside>
+							</li>
+							<li class="fragment fade-up">Environment Standardization and Version Control
+								<aside class="notes">
+									<ul>
+										<li>Docker containers ensure consistency across multiple development and release cycles, standardizing your environment.</li>
+										<li>Docker containers work just like GIT repositories</li>
+									</ul>
+								</aside>
+							</li>
+							<li class="fragment fade-up">Isolation
+								<aside class="notes">
+									Docker containers are as good as VM hypervisors when it comes to isolating resources, but there is still work to be done
+									in terms of management and administration.
+								</aside>
+							</li>
+							<li class="fragment fade-up">Security
+								<aside class="notes">
+									<ul>
+										<li>Copy-On-Write filesystem</li>
+										<li>Docker Hub images are digitally signed to ensure authenticity</li>
+										<li>If one of your applications is hacked, it won’t affect applications that are running on other Docker containers.</li>
+									</ul>
+								</aside>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section>
+				<div>
+					<h3>Docker Ecosystem</h3>
+					<img src="./assets/images/docker_ecosystem.png" height="550px" widht="auto" alt="">
+				</div>
+			</section>
+			<section>
+				<section>
+					<div>
+						<h3>Fundamental Docker Concepts</h3>
+						<ul>
+							<li class="fragment fade-up">Docker Engine</li>
+							<li class="fragment fade-up">Docker Client</li>
+							<li class="fragment fade-up">Docker Daemon</li>
+							<li class="fragment fade-up">Dockerfile</li>
+							<li class="fragment fade-up">Docker Image</li>
+							<li class="fragment fade-up">Union File Systems</li>
+							<li class="fragment fade-up">Volumes</li>
+							<li class="fragment fade-up">Docker Containers</li>
+							<li class="fragment fade-up">Docker Registry</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Docker Engine</h3>
+						<p>Docker engine is the layer on which Docker runs
+							<aside class="notes">
+								It runs natively on Linux systems
+							</aside>
+						</p>
+						<ol>
+							<li class="fragment fade-up">Docker Daemon
+								<aside class="notes">
+									The Docker daemon is what actually executes commands sent to the Docker Client
+								</aside>
+							</li>
+							<li class="fragment fade-up">Docker Client
+								<aside class="notes">
+									The Docker Client is what you, as the end-user of Docker, communicate with.
+								</aside>
+							</li>
+							<li class="fragment fade-up">REST API
+								<aside class="notes">
+									Can be used to interact with the Docker Daemon remotely.
+								</aside>
+							</li>
+						</ol>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Dockerfile</h3>
+						<p>A Dockerfile is file where you write the instructions to build a Docker image</p>
+						<code>
+							<pre># Nginx
+#
+# VERSION               0.0.1
+
+FROM      ubuntu
+LABEL Description="Description of docker image"
+RUN apt-get update
+RUN apt-get install -y nginx</code>
+							</pre>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Docker Image</h3>
+						<p>Images are read-only templates that you build from a set of instructions written in your Dockerfile</p>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Union File Systems</h3>
+						<p>Docker uses Union File Systems to build up an image</p>
+						<p>Benefits of Union File system</p>
+						<ul>
+							<li>Duplication-free
+							</li>
+							<li>Layer segregation
+							</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>layers help avoid duplicating a complete set of files every time you use an image to create and run a new container</li>
+								<li>when you change an image, Docker only propagates the updates to the layer that was changed.</li>
+							</ul>
+						</aside>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Volumes</h3>
+						<ul>
+							<li>Volumes are the “data” part of a container, initialized when a container is created.</li>
+							<li>Data volumes are separate from the default Union File System and exist as normal directories and files on the host
+								filesystem
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Docker Containers</h3>
+						<ul>
+							<li>Wraps an application’s software into an invisible box with everything the application needs to run</li>
+							<li>That includes the operating system, application code, runtime, system tools, system libraries, and etc.</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Docker Containers ...</h3>
+						<img src="./assets/images/docker_containers.png" height="550px" widht="auto" alt="">
+					</div>
+				</section>
+			</section>
+			<section>
 				<div>
 					<h1>Questions?</h1>
+					<p>Documentation - <a href="https://docs.docker.com" target="_blank">https://docs.docker.com</a></p>
+				</div>
+			</section>
+			<section>
+				<div>
+					<h1>Thank You!</h1>
 				</div>
 			</section>
 		</div>
