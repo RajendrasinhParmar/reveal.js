@@ -37,233 +37,328 @@
 			</section>
 			<section>
 				<div>
-					<h3>What is Version control?</h3>
-					<p>
-						Version control system 
-					</p>
+					<img src="./assets/images/git_image_funny_filename.png" height="auto" widht="100%" alt="Version control image">
+					<small>Personal version control</small>
 				</div>
-			</section>
-			<section>
-				<section>
-					<div>
-						<h2>containers & VMs</h2>
-						<h3 class="fragment fade-up">Goals</h3>
-						<ul>
-							<li class="fragment fade-up">To isolate an application and its dependencies</li>
-							<li class="fragment fade-up">Remove the need for physical hardware</li>
-							<li class="fragment fade-up">More efficient use of computing resources</li>
-						</ul>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h2>Virtual Machines (VM)</h2>
-						<p>A VM is essentially an emulation of a real computer that executes programs like a real computer.</p>
-						<p>VMs run on top of a physical machine using a “hypervisor”. A hypervisor, in turn, runs on either a host machine or
-							on “bare-metal”.</p>
-					</div>
-					<aside class="notes">
-						A hypervisor is a piece of software, firmware, or hardware that VMs run on top of. The hypervisors themselves run on physical
-						computers, referred to as the “host machine”.
-					</aside>
-				</section>
-				<section>
-					<div>
-						<h4>Virtual Machines (VM) ... </h4>
-						<img src="./assets/images/hyperv.png" height="550px" widht="auto" alt="">
-					</div>
-					<aside class="notes">
-						VM provides hardware virtualization For all intent and purposes, containers look like a VM. For example, they have private
-						space for processing, can execute commands as root, have a private network interface and IP address, allow custom routes
-						and iptable rules, can mount file systems, and etc.
-					</aside>
-				</section>
-				<section>
-					<div>
-						<h2>Container</h2>
-						<p>Container provides operating-system-level virtualization by abstracting the “user space”</p>
-						<p>The one big difference between containers and VMs is that containers
-							<b style="color:chartreuse;">share</b> the host system’s kernel with other containers.</p>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h4>Container ... </h4>
-						<img src="./assets/images/container.png" height="550px" widht="auto" alt="">
-					</div>
-					<aside class="notes">
-						The only parts that are created from scratch are the bins and libs. This is what makes containers so lightweight.
-					</aside>
-				</section>
-			</section>
-			<section>
-				<section>
-					<div>
-						<h2>Key Benefits of Docker
-							<aside class="notes">
-							</aside>
-						</h2>
-						<ul>
-							<li class="fragment fade-up">Continuous Deployment and Testing
-								<aside class="notes">
-									There are always minor differences between environments in development and release lifecycles
-								</aside>
-							</li>
-							<li class="fragment fade-up">Portability
-								<aside class="notes">
-									Docker containers can be run inside an Amazon EC2 instance, Google Compute Engine instance, Rackspace server or VirtualBox,
-									provided that the host OS supports Docker
-								</aside>
-							</li>
-							<li class="fragment fade-up">Environment Standardization and Version Control
-								<aside class="notes">
-									<ul>
-										<li>Docker containers ensure consistency across multiple development and release cycles, standardizing your environment.</li>
-										<li>Docker containers work just like GIT repositories</li>
-									</ul>
-								</aside>
-							</li>
-							<li class="fragment fade-up">Isolation
-								<aside class="notes">
-									Docker containers are as good as VM hypervisors when it comes to isolating resources, but there is still work to be done
-									in terms of management and administration.
-								</aside>
-							</li>
-							<li class="fragment fade-up">Security
-								<aside class="notes">
-									<ul>
-										<li>Copy-On-Write filesystem</li>
-										<li>Docker Hub images are digitally signed to ensure authenticity</li>
-										<li>If one of your applications is hacked, it won’t affect applications that are running on other Docker containers.</li>
-									</ul>
-								</aside>
-							</li>
-						</ul>
-					</div>
-				</section>
+				<aside class="notes">
+					Other than this way there is a better way to deal with this using time stamped directories of filenames
+				</aside>
 			</section>
 			<section>
 				<div>
-					<h3>Docker Ecosystem</h3>
-					<img src="./assets/images/docker_ecosystem.png" height="550px" widht="auto" alt="">
+					<h3>What is Version control?</h3>
+					<p>
+						Version control is a system that records changes to a file or set of files over time so that you can recall specific versions
+						later
+					</p>
+				</div>
+				<aside class="notes">
+					Version control software keeps track of every modification to the code in a special kind of database.
+				</aside>
+			</section>
+			<section>
+				<div>
+					<h3>
+						Goals Of Good Version Control System
+						<aside class="notes">
+						</aside>
+					</h3>
+					<ul>
+						<li class="fragment fade-up">
+							Change History
+							<aside class="notes">
+								<ul>
+									<li>A complete change history of every file</li>
+									<li>history should also include the author, date and written notes on the purpose of each change</li>
+									<li>This helps us identify and find the root cause of bug</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="fragment fade-up">
+							Branching
+							<aside class="notes">
+								<ul>
+									<li>Creating a branch keeps multiple stream of work independent from each other </li>
+									<li>This allow team members to collaborate so that different developer can work on different functionality at the same
+										time
+									</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="fragment fade-up">
+							Merging
+							<aside class="notes">
+								<ul>
+									<li>Ability to Merge two different branch one the work is done</li>
+									<li>It provide feature to properly merge changes without conflicts</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="fragment fade-up">
+							Traceability
+							<aside class="notes">
+								<ul>
+									<li>As we have a complete file history VCS enables us to trace all the changes made to the file</li>
+									<li>Some VCS also provides integration with different project management softwares like JIRA</li>
+									<li>This can be helpful in estimating future work with more accuracy</li>
+								</ul>
+							</aside>
+						</li>
+						<li class="fragment fade-up">
+							Comparison
+							<aside class="notes">
+								<ul>
+									<li>Two version of same file</li>
+									<li>Two different branch</li>
+									<li>Two different tags</li>
+									<li>Any two different commits</li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
 				</div>
 			</section>
 			<section>
 				<section>
-					<div>
-						<h3>Fundamental Docker Concepts</h3>
-						<ul>
-							<li class="fragment fade-up">Docker Engine</li>
-							<li class="fragment fade-up">Docker Client</li>
-							<li class="fragment fade-up">Docker Daemon</li>
-							<li class="fragment fade-up">Dockerfile</li>
-							<li class="fragment fade-up">Docker Image</li>
-							<li class="fragment fade-up">Union File Systems</li>
-							<li class="fragment fade-up">Volumes</li>
-							<li class="fragment fade-up">Docker Containers</li>
-							<li class="fragment fade-up">Docker Registry</li>
-						</ul>
-					</div>
+					<h2>Types of version control systems</h2>
+					<ul>
+						<li>Local Version Control Systems</li>
+						<li>Centralized Version Control Systems</li>
+						<li>Distributed Version Control Systems</li>
+					</ul>
 				</section>
 				<section>
 					<div>
-						<h3>Docker Engine</h3>
-						<p>Docker engine is the layer on which Docker runs
-							<aside class="notes">
-								It runs natively on Linux systems
-							</aside>
-						</p>
-						<ol>
-							<li class="fragment fade-up">Docker Daemon
-								<aside class="notes">
-									The Docker daemon is what actually executes commands sent to the Docker Client
-								</aside>
-							</li>
-							<li class="fragment fade-up">Docker Client
-								<aside class="notes">
-									The Docker Client is what you, as the end-user of Docker, communicate with.
-								</aside>
-							</li>
-							<li class="fragment fade-up">REST API
-								<aside class="notes">
-									Can be used to interact with the Docker Daemon remotely.
-								</aside>
-							</li>
-						</ol>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h3>Dockerfile</h3>
-						<p>A Dockerfile is file where you write the instructions to build a Docker image</p>
-						<code>
-							<pre># Nginx
-#
-# VERSION               0.0.1
-
-FROM      ubuntu
-LABEL Description="Description of docker image"
-RUN apt-get update
-RUN apt-get install -y nginx</code>
-							</pre>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h3>Docker Image</h3>
-						<p>Images are read-only templates that you build from a set of instructions written in your Dockerfile</p>
-					</div>
-				</section>
-				<section>
-					<div>
-						<h3>Union File Systems</h3>
-						<p>Docker uses Union File Systems to build up an image</p>
-						<p>Benefits of Union File system</p>
-						<ul>
-							<li>Duplication-free
-							</li>
-							<li>Layer segregation
-							</li>
-						</ul>
+						<h3>Local Version Control Systems</h3>
+						<img class="fragment fade-up" src="./assets/images/git_local_VCS.png" height="550px" widht="auto" alt="">
 						<aside class="notes">
 							<ul>
-								<li>layers help avoid duplicating a complete set of files every time you use an image to create and run a new container</li>
-								<li>when you change an image, Docker only propagates the updates to the layer that was changed.</li>
+								<li>Revision Control System (RCS) is an early version control system (VCS)</li>
+								<li>Patch sets (that is, the differences between files)</li>
+								<li>Allows users to make their own revisions of a document, commit and merge them together</li>
+							</ul>
+
+						</aside>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Centralized Version Control Systems</h3>
+						<img class="fragment fade-up" src="./assets/images/git_centralized_VCS.png" height="550px" widht="auto" alt="">
+						<aside class="notes">
+							<ul>
+								<li>The next major issue is to collaborate on different system. RCS doesn't provide it as it's local system</li>
+								<li>Centralized Version Control Systems (CVCSs)</li>
+								<li>CVS, Subversion(SVN), and Perforce are example of CVCS systems</li>
 							</ul>
 						</aside>
 					</div>
 				</section>
 				<section>
 					<div>
-						<h3>Volumes</h3>
+						<h3>Distributed Version Control Systems</h3>
+						<img class="fragment fade-up" src="./assets/images/git_distributed_VCS.png" height="550px" widht="auto" alt="">
+						<aside class="notes">
+							<ul>
+								<li>Distributed Version Control Systems (DVCSs)</li>
+								<li>Git, Mercurial, Bazaar, Darcs</li>
+								<li>Client fully mirror the repository, including its full history</li>
+								<li>It allows us to have multiple remote repository to collaborate with different groups of people in different ways
+									simultaneously within the same project</li>
+							</ul>
+						</aside>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<div>
+						<h3>What is Git?</h3>
+						<img src="./assets/images/git_logo.png" alt="" style="box-shadow: none; border: 0; background: none">
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Benefits Of Git</h3>
 						<ul>
-							<li>Volumes are the “data” part of a container, initialized when a container is created.</li>
-							<li>Data volumes are separate from the default Union File System and exist as normal directories and files on the host
-								filesystem
+							<li>Speed</li>
+							<li>Simple design</li>
+							<li>Flexibility</li>
+							<li>Security</li>
+							<li>Strong support for non-linear development</li>
+							<li>Fully distributed</li>
+							<li>Able to handle large projects like the Linux kernel efficiently </li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Non-linear development -> Thousands of parallel branches</li>
+								<li>Large projects -> Speed and data size</li>
+							</ul>
+						</aside>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<div>
+						<h3>Fundamental Git Concepts</h3>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>The Three States</h3>
+						<img src="./assets/images/git_three_areas.png" alt="" style="box-shadow: none; border: 0; background: none">
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Installation</h3>
+						<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>
+					</div>
+				</section>
+				<section>
+					<div>
+						<h3>Init</h3>
+						<ul>
+							<li>
+								Initializing a Repository in an Existing Directory
+								<pre><code>$ cd /home/user/my_project
+$ git init</code></pre>
+							</li>
+							<li>
+								Cloning an Existing Repository
+								<pre><code>$ git clone https://github.com/USERNAME/REPOSITORY_NAME</code></pre>
+							</li>
+							<li>
+								Cloning an Existing Repository to specific directory
+								<pre><code>$ git clone REPOSITORY_URL local_name</code></pre>
 							</li>
 						</ul>
 					</div>
 				</section>
 				<section>
 					<div>
-						<h3>Docker Containers</h3>
-						<ul>
-							<li>Wraps an application’s software into an invisible box with everything the application needs to run</li>
-							<li>That includes the operating system, application code, runtime, system tools, system libraries, and etc.</li>
-						</ul>
+						<h3>Life Cycle of file in git</h3>
+						<img src="./assets/images/git_lifecycle.png" alt="" style="box-shadow: none; border: 0; background: none">
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<div>
+						<h1>Git Commands</h1>
 					</div>
 				</section>
 				<section>
 					<div>
-						<h3>Docker Containers ...</h3>
-						<img src="./assets/images/docker_containers.png" height="550px" widht="auto" alt="">
+						<h1>Add</h1>
+						<p>This command will add file to staging area</p>
+						<pre><code>$ git add FILE_NAME1, FILE_NAME2
+$ git add .</code></pre>
 					</div>
+					<aside class="notes">
+						This can also consider as marking file for commit
+						1 Will add two files to staging area
+						2 Will add all the file recursively to staging area from current dir
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Log</h1>
+						<p>This command will log the commit messages on current branch</p>
+						<pre><code>$ git log</code></pre>
+						<pre><code>commit 398d1300dce3e282008d462ebc74ec341e02eafb (HEAD -> master, origin/master, origin/HEAD)
+Author: Rajendrasinh Parmar <rajendra20791@gmail.com>
+Date:   Wed May 2 00:49:10 2018 +0530
+
+	Add presentation for Git basics</code></pre>
+					</div>
+					<aside class="notes">
+						can use different keys to get required commit elements
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Commit</h1>
+						<p>This command will commit the file(s) added to staging area</p>
+						<pre><code>$ git commit -m "COMMIT_MESSAGE"</code></pre>
+					</div>
+					<aside class="notes">
+						This will actually commit all the changes from staging area and record them in version control
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Checkout</h1>
+						<p>This command will checkout the branch</p>
+						<pre><code>$ git checkout BRANCH_NAME</code></pre>
+						<pre><code>$ git checkout -b NEW_BRANCH_NAME</code></pre>
+					</div>
+					<aside class="notes">
+						Create new branch using existing branch as base branch passing -b argument
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Fetch</h1>
+						<p>This command will fetch all the changes from remote repository to the local remote branch but will not merge them to actual local branch</p>
+						<pre><code>$ git fetch REMOTE_NAME BRANCH_NAME</code></pre>
+					</div>
+					<aside class="notes">
+						Fetch will only fetch changes to local remote branch that is tracking the actual remote branch
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Merge</h1>
+						<p>Merge all the changes from source branch the destination branch</p>
+						<pre><code>$ git merge SOURCE_BRANCH</code></pre>
+					</div>
+					<aside class="notes">
+						Fetch will only fetch changes to local remote branch that is tracking the actual remote branch
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Pull</h1>
+						<p>This command will pull all the changes from remote repository and merge them into local branch</p>
+						<pre><code>$ git pull REMOTE_NAME BRANCH_NAME</code></pre>
+					</div>
+					<aside class="notes">
+						Pull is combination of git fetch + git merge
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>PUSH</h1>
+						<p>This command will push all the committed changes from local branch to remote branch</p>
+						<pre><code>$ git push REMOTE_NAME BRANCH_NAME</code></pre>
+					</div>
+					<aside class="notes">
+						Push will only push committed changes
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>REBASE</h1>
+						<p>This is advanced git command that can be used to rewrite the git history</p>
+						<pre><code>$ git pull REMOTE_NAME SOURCE_BRANCH
+$ git checkout DESTINATION_BRANCH
+$ git pull REMOTE_NAME DESTINATION_BRANCH
+$ git rebase SOURCE_BRANCH</code></pre>
+					</div>
+					<aside class="notes">
+						Make sure to have all the changes for both the branches locally
+					</aside>
 				</section>
 			</section>
 			<section>
 				<div>
 					<h1>Questions?</h1>
-					<p>Documentation - <a href="https://docs.docker.com" target="_blank">https://docs.docker.com</a></p>
+					<ul>
+						<li><a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">Official Git Documentation</a></li>
+						<li><a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Git For Beginners</a></li>
+					</ul>
 				</div>
 			</section>
 			<section>
@@ -283,22 +378,22 @@ RUN apt-get install -y nginx</code>
 		// - https://github.com/hakimel/reveal.js#dependencies
 		Reveal.initialize({
 			dependencies: [{
-					src: 'plugin/markdown/marked.js'
-				},
-				{
-					src: 'plugin/markdown/markdown.js'
-				},
-				{
-					src: 'plugin/notes/notes.js',
-					async: true
-				},
-				{
-					src: 'plugin/highlight/highlight.js',
-					async: true,
-					callback: function () {
-						hljs.initHighlightingOnLoad();
-					}
+				src: 'plugin/markdown/marked.js'
+			},
+			{
+				src: 'plugin/markdown/markdown.js'
+			},
+			{
+				src: 'plugin/notes/notes.js',
+				async: true
+			},
+			{
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function () {
+					hljs.initHighlightingOnLoad();
 				}
+			}
 			]
 		});
 	</script>
