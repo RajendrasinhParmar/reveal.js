@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Docker</title>
+	<title>Git Basics</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/moon.css">
@@ -36,12 +36,12 @@
 				</p>
 			</section>
 			<section>
-				<div>
-					<img src="./assets/images/git_image_funny_filename.png" height="auto" widht="100%" alt="Version control image">
+				<!-- <div> -->
+					<img class="stretch" src="./assets/images/git_image_funny_filename.png" height="auto" widht="100%" alt="Version control image">
 					<small>Personal version control</small>
-				</div>
+				<!-- </div> -->
 				<aside class="notes">
-					Other than this way there is a better way to deal with this using time stamped directories of filenames
+					Other than this way there is a better way to deal with this using time stamped directories or filenames
 				</aside>
 			</section>
 			<section>
@@ -79,8 +79,7 @@
 							<aside class="notes">
 								<ul>
 									<li>Creating a branch keeps multiple stream of work independent from each other </li>
-									<li>This allow team members to collaborate so that different developer can work on different functionality at the same
-										time
+									<li>Allow team members to collaborate so that individual developer can work on different functionality at the same time
 									</li>
 								</ul>
 							</aside>
@@ -89,7 +88,7 @@
 							Merging
 							<aside class="notes">
 								<ul>
-									<li>Ability to Merge two different branch one the work is done</li>
+									<li>Ability to Merge two different branches once the work is done</li>
 									<li>It provide feature to properly merge changes without conflicts</li>
 								</ul>
 							</aside>
@@ -123,8 +122,8 @@
 					<h2>Types of version control systems</h2>
 					<ul>
 						<li>Local Version Control Systems</li>
-						<li>Centralized Version Control Systems</li>
-						<li>Distributed Version Control Systems</li>
+						<li>Centralized Version Control Systems (CVCS)</li>
+						<li>Distributed Version Control Systems (DVCS)</li>
 					</ul>
 				</section>
 				<section>
@@ -174,7 +173,13 @@
 				<section>
 					<div>
 						<h3>What is Git?</h3>
-						<img src="./assets/images/git_logo.png" alt="" style="box-shadow: none; border: 0; background: none">
+						<div>
+							<img src="./assets/images/git_logo.png" alt="" style="width: 200px; height: 200px; box-shadow: none; border: 0; background: none">
+							<p>
+								Git is a free and open source distributed version control system designed to handle everything from small to very large projects
+								with speed and efficiency.
+							</p>
+						</div>
 					</div>
 				</section>
 				<section>
@@ -222,8 +227,10 @@
 						<ul>
 							<li>
 								Initializing a Repository in an Existing Directory
-								<pre><code>$ cd /home/user/my_project
-$ git init</code></pre>
+								<pre><code data-trim>
+										$ cd /home/user/my_project
+										$ git init
+									</code></pre>
 							</li>
 							<li>
 								Cloning an Existing Repository
@@ -253,28 +260,48 @@ $ git init</code></pre>
 					<div>
 						<h1>Add</h1>
 						<p>This command will add file to staging area</p>
-						<pre><code>$ git add FILE_NAME1, FILE_NAME2
-$ git add .</code></pre>
+						<pre><code data-trim>
+							$ git add FILE_NAME1, FILE_NAME2
+							$ git add .</code></pre>
 					</div>
 					<aside class="notes">
 						This can also consider as marking file for commit
-						1 Will add two files to staging area
-						2 Will add all the file recursively to staging area from current dir
+						<ul>
+							<li>1<sup>st</sup> Will add two files to staging area</li>
+							<li>2<sup>nd</sup> Will add all the file recursively to staging area from current dir</li>
+						</ul>
 					</aside>
 				</section>
 				<section>
 					<div>
 						<h1>Log</h1>
 						<p>This command will log the commit messages on current branch</p>
-						<pre><code>$ git log</code></pre>
-						<pre><code>commit 398d1300dce3e282008d462ebc74ec341e02eafb (HEAD -> master, origin/master, origin/HEAD)
-Author: Rajendrasinh Parmar <rajendra20791@gmail.com>
-Date:   Wed May 2 00:49:10 2018 +0530
+						<pre><code data-trim>
+							$ git log
+							commit 398d1300dce3e282008d462ebc74ec341e02eafb (HEAD -> master, origin/master, origin/HEAD)
+							Author: Rajendrasinh Parmar <rajendra20791@gmail.com>
+							Date:   Wed May 2 00:49:10 2018 +0530
 
-	Add presentation for Git basics</code></pre>
+								Add presentation for Git basics</code></pre>
 					</div>
 					<aside class="notes">
 						can use different keys to get required commit elements
+					</aside>
+				</section>
+				<section>
+					<div>
+						<h1>Log ...</h1>
+						<p>Some more logging</p>
+						<pre><code data-trim>
+							$ git log --oneline -5
+							92dd52a (HEAD -> master, origin/master, origin/gh-pages, origin/HEAD, gh-pages) Add presentations to landing pages
+							757d23e Git basics presentation
+							398d130 Add presentation for Git basics
+							375427a Add package-lock file
+							79be285 Merge latest changes to fork repo</code></pre>
+					</div>
+					<aside class="notes">
+						--graph
 					</aside>
 				</section>
 				<section>
@@ -301,7 +328,8 @@ Date:   Wed May 2 00:49:10 2018 +0530
 				<section>
 					<div>
 						<h1>Fetch</h1>
-						<p>This command will fetch all the changes from remote repository to the local remote branch but will not merge them to actual local branch</p>
+						<p>This command will fetch all the changes from remote repository to the local remote branch but will not merge them to
+							actual local branch</p>
 						<pre><code>$ git fetch REMOTE_NAME BRANCH_NAME</code></pre>
 					</div>
 					<aside class="notes">
@@ -356,9 +384,15 @@ $ git rebase SOURCE_BRANCH</code></pre>
 				<div>
 					<h1>Questions?</h1>
 					<ul>
-						<li><a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">Official Git Documentation</a></li>
-						<li><a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Git For Beginners</a></li>
-						<li><a href="https://rajendrasinhparmar.github.io/reveal.js/git.html#/">This presentation</a></li>
+						<li>
+							<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">Official Git Documentation</a>
+						</li>
+						<li>
+							<a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Git For Beginners</a>
+						</li>
+						<li>
+							<a href="https://rajendrasinhparmar.github.io/reveal.js/git.html#/">This presentation</a>
+						</li>
 					</ul>
 				</div>
 			</section>
