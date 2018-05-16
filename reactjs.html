@@ -38,7 +38,7 @@
                 </p>
             </section>
             <section>
-                <h2>What is React.js?</h2>
+                <h2>What is ReactJS?</h2>
                 <ul>
                     <li class="fragment fade-up">
                         Developed by Facebook
@@ -130,7 +130,7 @@
                                     <li>Real DOM is slow</li>
                                     <li>JavaScript is fast</li>
                                     <li>React uses virtual DOM</li>
-                                    <li>virtual DOM objects enables fast batch updates to real DOM</li>
+                                    <li>Virtual DOM objects enables fast batch updates to real DOM</li>
                                 </ul>
                             </aside>
                         </li>
@@ -221,6 +221,188 @@
                                 There some polyfills / shims that help
                             </li>
                         </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <div>
+                    <h2>
+                        Why React?
+                    </h2>
+                    <ul>
+                        <li>Easy to read and understand views</li>
+                        <li>Concept of components is the
+                            <i>future</i> of web development</li>
+                        <li>For fast and real time data update react is a good option</li>
+                        <li>Development is faster in react</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1>Fundamentals</h1>
+                    <p>Most important terms in react</p>
+                    <br/>
+                    <ul>
+                        <li>Component</li>
+                        <li>Props</li>
+                        <li>State</li>
+                        <li>JSX</li>
+                        <li>Virtual DOM</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <section>
+                    <h2>Component</h2>
+                </section>
+                <section>
+                    <h2>Component</h2>
+                    <p>Components are self-contained reusable building block of application.</p>
+                    <aside class="notes">
+                        React components are just idempotent functions. Same input will provide same output.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Component</h2>
+                    <ul>
+                        <li>Created using React.createClass()</li>
+                        <li>The only required method is render()</li>
+                        <li>Inserted into DOM by using React.renderComponent()</li>
+                    </ul>
+                    <aside class="notes">
+                        React components are just idempotent functions. Same input will provide same output.
+                    </aside>
+                </section>
+                <section>
+                    <div>
+                        <h2>Component</h2>
+                        <pre><code data-trim>
+                            var React = require('react'),
+                            SimpleView = React.createClass({
+                                render: function () {
+                                    return <h1><strong>Example 1:</strong> A simple component</h1>;
+                                }
+                            });
+
+                            React.renderComponent(SimpleView(), document.getElementById('example'));
+                        </code></pre>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Props</h2>
+                </section>
+                <section>
+                    <h2>Props</h2>
+                    <ul>
+                        <li>Passed down to component from parent component and represent data for the component</li>
+                        <li>Can be accessed using
+                            <i>this.props</i>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div>
+                        <h2>Props</h2>
+                        <pre><code data-trim>
+                            render: function() {
+                                var someProp = 'bar';
+                                
+                                console.log('component render()', this.props);
+                            
+                                return <div>
+                                    <AnotherComponent foo={someProp} model={this.props.model} />
+                                </div>;
+                            }
+                        </code></pre>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>State</h2>
+                </section>
+                <section>
+                    <h2>State</h2>
+                    <ul>
+                        <li>Represent internal state of component</li>
+                        <li>Can be accessed via this.props</li>
+                    </ul>
+                </section>
+                <section>
+                    <div>
+                        <h2>State</h2>
+                        <pre><code data-trim>
+                            render: function() {
+                                return <h3>Click count: 
+                                    <span className='label label-default'>{this.state.clicks}</span>
+                                </h3>;
+                            }
+                        </code></pre>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>JSX</h2>
+                    <aside class="notes">
+                        JSX stands for JavaScript XML
+                    </aside>
+                </section>
+                <section>
+                    <h2>JSX</h2>
+                    <ul>
+                        <li>XML-like syntax for generating component's HTML</li>
+                        <li>Easier to read and understand large DOM trees</li>
+                        <li>Translates to plain JavaScript using react-tools</li>
+                    </ul>
+                </section>
+                <section>
+                    <div>
+                        <h2>JSX</h2>
+                        <pre><code data-trim>
+                            /** @jsx React.DOM */
+                            render: function () {
+                                return <div>
+                                    <h2>
+                                        <strong>Example 4:</strong>  React App
+                                    </h2>
+                                </div>;
+                            }
+
+                            /** regular DOM */    
+                            render: function () {
+                                return React.DOM.div(null, 
+                                    React.DOM.h2(null, React.DOM.strong(null, "Example 4:"), " React App")
+                                );
+                            }
+                        </code></pre>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div>
+                        <h2>Virtual DOM</h2>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Virtual DOM</h2>
+                        <ul>
+                            <li>Efficient re-rendering of DOM</li>
+                            <li>Re-render the virtual tree only when state changes</li>
+                            <li>Use 2 virtual tree to find the difference</li>
+                            <li>Batch update real DOM</li>
+                            <li>Observe data changes (setState) and does dirty check to know when to re-render component</li>
+                            <li>Doesn't refresh entire DOM</li>
+                        </ul>
+                        <aside class="notes">
+                            Whenever possible, does not update entire component in real DOM - only computes a patch operation that updates part of the
+                            DOM
+                        </aside>
                     </div>
                 </section>
             </section>
