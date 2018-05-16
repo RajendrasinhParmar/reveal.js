@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ReactJS</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <img class="stretch" src="./assets/images/reactjs_logo.png" style="width: 200px; height: 200px; box-shadow: none; border: 0; background: none"
+                    alt="ReactJs logo">
+                <h2>ReactJS Fundamentals</h2>
+                <p>
+                    <small>Created by
+                        <a href="https://github.com/RajendrasinhParmar">Rajendrasinh Parmar</a> /
+                        <a href="https://twitter.com/RAJENDRASINH_09">@RAJENDRASINH_09</a>
+                    </small>
+                </p>
+            </section>
+            <section>
+                <h2>What is React.js?</h2>
+                <ul>
+                    <li class="fragment fade-up">
+                        Developed by Facebook
+                    </li>
+                    <li class="fragment fade-up">
+                        It is a view
+                        <strong>library</strong>
+                    </li>
+                    <li class="fragment fade-up">
+                        It is not a
+                        <strong>framework</strong> like Angular, Backbone etc.
+                    </li>
+                    <li class="fragment fade-up">
+                        We can not use React to build a fully functional web app without using third-party dependencies
+                    </li>
+                </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>Initial release: March 2013; 5 years ago</li>
+                        <li>Announced on April 18, 2017 React Fiber is an algorithm to build user interface(React 16)</li>
+                        <li>ReactJS is javascript based view library</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <div>
+                    <h3>Why was React developed?</h3>
+                    <ul>
+                        <li>Two-way data binding complexity</li>
+                        <li>Bad UX due to direct DOM tree manipulation</li>
+                        <li>Data volume on a page that changes over time</li>
+                        <li>Complexity of Facebook's UI Architecture and so many elements on page</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>One-way data flow makes debugging and developing app easy</li>
+                        <li>Asana, Facebook, Airbnb, Netflix, New York Times and many more</li>
+                    </ul>
+                </aside>
+            </section>
+            <section>
+                <div>
+                    <h2>
+                        React: Pros
+                        <aside class="notes">
+                        </aside>
+                    </h2>
+                    <ul>
+                        <li class="fragment fade-up">
+                            Easy to understand what a component will render
+                            <aside class="notes">
+                                <ul>
+                                    <li>Declarative code → predictable code</li>
+                                    <li>We don't really need to study js in view file to understand what actually the file does</li>
+                                </ul>
+                            </aside>
+                        </li>
+                        <li class="fragment fade-up">
+                            Easy to mix HTML and JS
+                            <aside class="notes">
+                                <ul>
+                                    <li>We are doing it already by using template libraries like ejs, Handlebars, Mustache </li>
+                                    <li>In this case we will use syntax called JSX</li>
+                                </ul>
+                            </aside>
+                        </li>
+                        <li class="fragment fade-up">
+                            Uses full power of JS
+                            <aside class="notes">
+                                Decoupling templates from logic does not rely on the templates’ primitive abstractions, but uses full power of JavaScript
+                                in displaying views
+                            </aside>
+                        </li>
+                        <li class="fragment fade-up">
+                            No complex two-way data flow
+                            <aside class="notes">
+                                <ul>
+                                    <li>Use one way reactive data flow</li>
+                                    <li>Easier to understand than two-way binding</li>
+                                    <li>Uses less code</li>
+                                </ul>
+                            </aside>
+                        </li>
+                        <li class="fragment fade-up">
+                            React is fast!
+                            <aside class="notes">
+                                <ul>
+                                    <li>Real DOM is slow</li>
+                                    <li>JavaScript is fast</li>
+                                    <li>React uses virtual DOM</li>
+                                    <li>virtual DOM objects enables fast batch updates to real DOM</li>
+                                </ul>
+                            </aside>
+                        </li>
+                        <li class="fragment fade-up">
+                            React dev tools
+                            <aside class="notes">
+                                <ul>
+                                    <li>React Chrome extension makes debugging so much easier</li>
+                                </ul>
+                            </aside>
+                        </li>
+                        <li class="fragment fade-up">
+                            Server-side rendering
+                            <aside class="notes">
+                                <ul>
+                                    <li>React.renderToString() returns pure HTML</li>
+                                </ul>
+                            </aside>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <section>
+                    <h1>
+                        React: Cons
+                    </h1>
+                </section>
+                <section>
+                    <div>
+                        <h2>
+                            React is nothing but the view
+                        </h2>
+                        <ul>
+                            <li>
+                                No events
+                            </li>
+                            <li>
+                                No XHR
+                            </li>
+                            <li>
+                                No data / models
+                            </li>
+                            <li>
+                                No promises / deferreds
+                            </li>
+                            <li>
+                                No idea how to add all of the above
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>
+                            Architectural annoyances
+                        </h2>
+                        <ul>
+                            <li>
+                                Some time it becomes too complicated to handle all the data changes in deeply nested components if you are using global state
+                                for application
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>
+                            Building JSX requires some extra work
+                        </h2>
+                        <ul>
+                            <li>
+                                There are tools available to handle JSX
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>
+                            No support for older browsers
+                        </h2>
+                        <ul>
+                            <li>
+                                React won't work with IE8
+                            </li>
+                            <li>
+                                There some polyfills / shims that help
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <div>
+                    <h1>Questions?</h1>
+                    <ul>
+                        <li>
+                            <a href="https://reactjs.org/docs/hello-world.html">Official React Documentation</a>
+                        </li>
+                        <li>
+                            <a href="https://reactjs.org/tutorial/tutorial.html">React tutorials</a>
+                        </li>
+                        <li>
+                            <a href="https://rajendrasinhparmar.github.io/reveal.js">Other presentations</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1>Thank You!</h1>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            dependencies: [{
+                src: 'plugin/markdown/marked.js'
+            },
+            {
+                src: 'plugin/markdown/markdown.js'
+            },
+            {
+                src: 'plugin/notes/notes.js',
+                async: true
+            },
+            {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+            ]
+        });
+    </script>
+</body>
+
+</html>
