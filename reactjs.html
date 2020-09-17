@@ -249,6 +249,7 @@
                         <li>State</li>
                         <li>JSX</li>
                         <li>Virtual DOM</li>
+                        <li>Hooks</li>
                     </ul>
                 </div>
             </section>
@@ -402,6 +403,64 @@
                         <aside class="notes">
                             Whenever possible, does not update entire component in real DOM - only computes a patch operation that updates part of the
                             DOM
+                        </aside>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div>
+                        <h2>Hooks</h2>
+                        <ul>
+                            <li>Hooks are functions that let you “hook into” React state and lifecycle features from function components</li>
+                            <li>Hooks don’t work inside classes</li>
+                            <li>they let you use React without classes</li>
+                        </ul>
+                        <aside class="notes">
+                            <ul>
+                                <li>Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class</li>
+                                <li>Hooks are backwards-compatible</li>
+                            </ul>
+                        </aside>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Hooks</h2>
+                        <p>Basic Hooks</p>
+                        <ul>
+                            <li>State Hook (useState)</li>
+                            <li>Effect Hook (useEffect)</li>
+                            <li>Context Hook (useContext)</li>
+                        </ul>
+                        <aside class="notes">
+                            Whenever possible, does not update entire component in real DOM - only computes a patch operation that updates part of the
+                            DOM
+                        </aside>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h2>Hooks</h2>
+                        <p>Additional Hooks</p>
+                        <ul>
+                            <li>useReducer</li>
+                            <li>useCallback</li>
+                            <li>useMemo</li>
+                            <li>useRef</li>
+                            <li>useImperativeHandle</li>
+                            <li>useLayoutEffect</li>
+                            <li>useDebugValue</li>
+                        </ul>
+                        <aside class="notes">
+                            <ul>
+                                <li>useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.</li>
+                                <li>useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed</li>
+                                <li>useMemo will only recompute the memoized value when one of the dependencies has changed.</li>
+                                <li>useRef is like a “box” that can hold a mutable value in its .current property</li>
+                                
+                                <li>useDebugValue can be used to display a label for custom hooks in React DevTools.</li>
+                            </ul>
                         </aside>
                     </div>
                 </section>
